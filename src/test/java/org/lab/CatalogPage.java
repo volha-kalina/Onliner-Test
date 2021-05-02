@@ -10,7 +10,7 @@ public class CatalogPage {
     @FindBy(xpath = "//h1[@class = \"catalog-navigation__title\" and contains(.,\"Каталог\")]")
     private WebElement catalogTitle;
 
-    @FindBy(xpath = "//*[@id=\"container\"]/div/div/div/div/div[1]/ul/li[2]")
+    @FindBy(xpath = "//li[@class=\"catalog-navigation-classifier__item \" and @data-id=\"1\"]")
     private WebElement electronicsLink;
 
     @FindBy(xpath = "//*[@class=\"catalog-navigation-list__category\"]//*[@class = \"catalog-navigation-list__aside-list\" and contains(.,\"Телевидение\")]")
