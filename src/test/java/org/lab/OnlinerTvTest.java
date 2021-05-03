@@ -19,7 +19,7 @@ public class OnlinerTvTest {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromeDriver"));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.get(ConfProperties.getProperty("mainPage"));
 
         mainPage = new MainPage(driver);
@@ -34,11 +34,18 @@ public class OnlinerTvTest {
         catalogPage.verifyAllElements();
         catalogPage.navigateToTvCategory();
         tvPage.verifyAllElements();
+        tvPage.setPrices("0", "1000");
+        tvPage.setDiagonals("40", "50");
         tvPage.setManufacturer("Samsung");
         tvPage.setResolution("1920x1080 (Full HD)");
-        tvPage.setPrices("0", "1000");
-        tvPage.setDiagonals("40\"", "50\"");
-        tvPage.checkResultTvs("Samsung");
+        tvPage.checkResultTvs(
+                "Samsung",
+                "1920x1080 (Full HD)",
+                "0",
+                "1000",
+                "40",
+                "50"
+        );
     }
 
     @AfterClass

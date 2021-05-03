@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 public class CatalogPage {
     @FindBy(xpath = "//h1[@class = \"catalog-navigation__title\" and contains(.,\"Каталог\")]")
@@ -32,8 +33,7 @@ public class CatalogPage {
     }
 
     public void verifyAllElements() {
-        catalogTitle.isDisplayed();
-        // add URL check
+        Assert.assertTrue(catalogTitle.isDisplayed());
     }
 
     public void navigateToTvCategory() {
